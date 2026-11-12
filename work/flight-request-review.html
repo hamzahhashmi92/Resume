@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The flight-request review page · Hamzah Hashmi</title>
+    <meta
+      name="description"
+      content="Authority staff decide on every drone flight request from this page. I created it in 2022, extended it for four years, and in 2025 split it into 12 focused components."
+    >
+    <meta name="author" content="Hamzah Hashmi">
+    <meta name="theme-color" content="#15171c">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="The flight-request review page · Hamzah Hashmi">
+    <meta
+      property="og:description"
+      content="Authority staff decide on every drone flight request from this page. I created it in 2022, extended it for four years, and in 2025 split it into 12 focused components."
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin-800-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="../assets/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24">
+        <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v6H4V6h6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/>
+      </symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/>
+      </symbol>
+    </svg>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Hamzah Hashmi, home page"><span class="mono" aria-hidden="true">HH</span><span class="name">Hamzah Hashmi</span></a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#work" aria-current="true">Work</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-primary" href="../Hamzah-Hashmi-Frontend-Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span><span class="long">Portfolio </span>PDF</span><span class="sr-only"> (PDF, 3.2 MB, opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="case-top">
+        <div class="wrap">
+          <a href="../index.html#card-flight-request-review"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>All work</a>
+        </div>
+      </div>
+      <article class="case" aria-labelledby="t">
+        <div class="wrap">
+          <header class="case-head">
+            <p class="case-num">Case 10<span class="part"> · SCNS, UAE</span></p>
+            <h1 id="t">The flight-request review page</h1>
+            <p class="deck">Authority staff decide on every drone flight request from this page. I created it in 2022, extended it for four years, and in 2025 split it into 12 focused components.</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>React</li>
+              <li>Google Maps</li>
+              <li>REST APIs</li>
+            </ul>
+          </header>
+          <div class="story">
+            <div class="problem">
+              <h2>The problem</h2>
+              <p>The page had grown past 2,000 lines in one component, so every change risked breaking another section.</p>
+            </div>
+            <div class="mine">
+              <h2>My part</h2>
+              <ul class="ticks">
+                <li>The page itself: map area, pilot, drone, insurance, risk, billing, certificates, documents and comments.</li>
+                <li>12 section components split out of the original file.</li>
+                <li>Amendments with coordinates in degrees-minutes-seconds or decimal, converted both ways.</li>
+                <li>Bulk download of all attachments, and a payment waiver for staff.</li>
+              </ul>
+            </div>
+            <div class="result">
+              <h2>Result</h2>
+              <p>Half of the page's code is mine: 2,800 of 5,600 lines, built over 247 commits.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="row">
+              <figure style="--r: 1.333">
+                <a
+                  class="shot"
+                  href="../img/hs-review-top.jpg"
+                  data-caption="A request under review: area, pilot, drone and status."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/hs-review-top.jpg"
+                    alt="Screenshot: a flight request under review with its map and details"
+                    width="1354"
+                    height="1016"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>A request under review: area, pilot, drone and status.</figcaption>
+              </figure>
+
+              <figure style="--r: 1.317">
+                <a
+                  class="shot"
+                  href="../img/hs-amend-form.jpg"
+                  data-caption="Amending a request with coordinates in degrees, minutes and seconds."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/hs-amend-form.jpg"
+                    alt="Screenshot: the amend form with coordinates in degrees, minutes and seconds"
+                    width="1031"
+                    height="783"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>Amending a request with coordinates in degrees, minutes and seconds.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="pager" aria-label="Case studies">
+        <div class="wrap">
+          <a class="prev" rel="prev" href="more-astrautm.html"><span>← Previous</span><b>More work on the AstraUTM platform</b></a>
+          <a class="next" rel="next" href="organisation-approval.html"><span>Next →</span><b>Organisation approval and payment requests</b></a>
+          <p class="hint">Use the <kbd>←</kbd> <kbd>→</kbd> keys to move between case studies.</p>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="links">
+          <span>© 2026 Hamzah Hashmi</span><a href="mailto:hamzah.hashmi92@gmail.com">hamzah.hashmi92@gmail.com</a><a href="https://www.linkedin.com/in/hamzahashmi92" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <p class="small">The React apps were run from their source with fictional demo data. The ASP.NET pages were rebuilt from their original markup, styles and scripts. Client logos are removed. Code samples are short examples written for this portfolio.</p>
+      </div>
+    </footer>
+
+    <dialog class="viewer" aria-label="Screenshot">
+      <div class="bar">
+        <p></p>
+        <button type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <img alt="">
+    </dialog>
+
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>

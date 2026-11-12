@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test IDs and Cypress page objects for the QA team · Hamzah Hashmi</title>
+    <meta
+      name="description"
+      content="The QA team's Cypress suite needs stable hooks into the UI. I added half of the app's test IDs and wrote TypeScript page objects for the screens they cover."
+    >
+    <meta name="author" content="Hamzah Hashmi">
+    <meta name="theme-color" content="#15171c">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Test IDs and Cypress page objects for the QA team · Hamzah Hashmi">
+    <meta
+      property="og:description"
+      content="The QA team's Cypress suite needs stable hooks into the UI. I added half of the app's test IDs and wrote TypeScript page objects for the screens they cover."
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin-800-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="../assets/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24">
+        <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v6H4V6h6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/>
+      </symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/>
+      </symbol>
+    </svg>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Hamzah Hashmi, home page"><span class="mono" aria-hidden="true">HH</span><span class="name">Hamzah Hashmi</span></a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#work" aria-current="true">Work</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-primary" href="../Hamzah-Hashmi-Frontend-Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span><span class="long">Portfolio </span>PDF</span><span class="sr-only"> (PDF, 3.2 MB, opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="case-top">
+        <div class="wrap">
+          <a href="../index.html#card-test-ids-cypress"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>All work</a>
+        </div>
+      </div>
+      <article class="case" aria-labelledby="t">
+        <div class="wrap">
+          <header class="case-head">
+            <p class="case-num">Case 03<span class="part"> · AstraUTM platform</span></p>
+            <h1 id="t">Test IDs and Cypress page objects for the QA team</h1>
+            <p class="deck">The QA team's Cypress suite needs stable hooks into the UI. I added half of the app's test IDs and wrote TypeScript page objects for the screens they cover.</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>Cypress</li>
+              <li>TypeScript</li>
+              <li>data-testid</li>
+            </ul>
+          </header>
+          <div class="story">
+            <div class="problem">
+              <h2>The problem</h2>
+              <p>Tests that found elements by visible text or CSS class broke whenever wording or styling changed.</p>
+            </div>
+            <div class="mine">
+              <h2>My part</h2>
+              <ul class="ticks">
+                <li>260+ distinct test IDs across the dashboard, notifications, comments, approvals and zone screens, including two clean-up merge requests covering 45 files.</li>
+                <li>Cypress page objects in TypeScript for the zones and zone-types screens, merged into the suite.</li>
+                <li>Page objects for the notification panel and list, with separate classes for the panel and each row and typed enums for tabs and record types.</li>
+                <li>Review comments asking colleagues to use test IDs in their tests.</li>
+              </ul>
+            </div>
+            <div class="result">
+              <h2>Result</h2>
+              <p>Half of all test IDs in the app are mine: 275 of 564.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="row mixed">
+              <figure>
+                <a
+                  class="shot"
+                  href="../img/h-aim-zones.jpg"
+                  data-caption="The zones list. Its page object reads the grid by row, column and test ID."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/h-aim-zones.jpg"
+                    alt="Screenshot: the zones list that the Cypress page objects drive"
+                    width="1084"
+                    height="809"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>The zones list. Its page object reads the grid by row, column and test ID.</figcaption>
+              </figure>
+              <pre class="code" tabindex="0" role="region" aria-label="Code example: page object: the test talks to the screen, not to its CSS"><span class="c">// page object: the test talks to the screen,</span>
+<span class="c">// not to its CSS</span>
+<span class="k">export class</span> <span class="t">AimZonesPage</span> {
+  <span class="k">private</span> root = <span class="s">".data-section"</span>;
+
+  <span class="f">refresh</span>(): <span class="t">Clickable</span> {
+    <span class="k">return new</span> <span class="t">Element</span>(
+      <span class="s">`${this.root} [data-testid="refresh"]`</span>);
+  }
+
+  <span class="f">list</span>(): <span class="t">ZoneListTable</span> {
+    <span class="k">return new</span> <span class="t">ZoneListTable</span>(<span class="s">`${this.root} .ag-root`</span>);
+  }
+}
+
+<span class="k">class</span> <span class="t">ZoneListTable</span> {
+  <span class="k">constructor</span>(<span class="k">private</span> sel: <span class="t">string</span>) {}
+
+  <span class="f">rowById</span>(id: <span class="t">number</span>): <span class="t">ZonesTableRow</span> {
+    <span class="k">this</span>.<span class="f">rows</span>().<span class="f">waitFor</span>(toAppear);
+    <span class="k">return new</span> <span class="t">ZonesTableRow</span>(<span class="k">this</span>.sel, <span class="t">String</span>(id));
+  }
+}
+
+<span class="c">// typed values instead of magic numbers</span>
+<span class="k">export enum</span> <span class="t">NotificationTab</span> {
+  ALL = <span class="s">0</span>, GENERAL = <span class="s">1</span>, ALERT = <span class="s">2</span>,
+}</pre>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="pager" aria-label="Case studies">
+        <div class="wrap">
+          <a class="prev" rel="prev" href="dashboard-ready.html"><span>← Previous</span><b>A ready signal for the live dashboard</b></a>
+          <a class="next" rel="next" href="unit-tests.html"><span>Next →</span><b>Unit and component tests</b></a>
+          <p class="hint">Use the <kbd>←</kbd> <kbd>→</kbd> keys to move between case studies.</p>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="links">
+          <span>© 2026 Hamzah Hashmi</span><a href="mailto:hamzah.hashmi92@gmail.com">hamzah.hashmi92@gmail.com</a><a href="https://www.linkedin.com/in/hamzahashmi92" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <p class="small">The React apps were run from their source with fictional demo data. The ASP.NET pages were rebuilt from their original markup, styles and scripts. Client logos are removed. Code samples are short examples written for this portfolio.</p>
+      </div>
+    </footer>
+
+    <dialog class="viewer" aria-label="Screenshot">
+      <div class="bar">
+        <p></p>
+        <button type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <img alt="">
+    </dialog>
+
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>

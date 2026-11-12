@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A ready signal for the live dashboard · Hamzah Hashmi</title>
+    <meta
+      name="description"
+      content="The dashboard loads eight data sources at once. I made it announce on its root element when every one of them has rendered, and how long that took, so automated tests can start at exactly the right moment."
+    >
+    <meta name="author" content="Hamzah Hashmi">
+    <meta name="theme-color" content="#15171c">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A ready signal for the live dashboard · Hamzah Hashmi">
+    <meta
+      property="og:description"
+      content="The dashboard loads eight data sources at once. I made it announce on its root element when every one of them has rendered, and how long that took, so automated tests can start at exactly the right moment."
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin-800-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="../assets/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24">
+        <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v6H4V6h6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/>
+      </symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/>
+      </symbol>
+    </svg>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Hamzah Hashmi, home page"><span class="mono" aria-hidden="true">HH</span><span class="name">Hamzah Hashmi</span></a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#work" aria-current="true">Work</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-primary" href="../Hamzah-Hashmi-Frontend-Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span><span class="long">Portfolio </span>PDF</span><span class="sr-only"> (PDF, 3.2 MB, opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="case-top">
+        <div class="wrap">
+          <a href="../index.html#card-dashboard-ready"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>All work</a>
+        </div>
+      </div>
+      <article class="case" aria-labelledby="t">
+        <div class="wrap">
+          <header class="case-head">
+            <p class="case-num">Case 02<span class="part"> · AstraUTM platform</span></p>
+            <h1 id="t">A ready signal for the live dashboard</h1>
+            <p class="deck">The dashboard loads eight data sources at once. I made it announce on its root element when every one of them has rendered, and how long that took, so automated tests can start at exactly the right moment.</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>React hooks</li>
+              <li>CustomEvent</li>
+              <li>TanStack Query</li>
+            </ul>
+          </header>
+          <div class="story">
+            <div class="problem">
+              <h2>The problem</h2>
+              <p>One element appearing on screen doesn't mean the dashboard is ready: eight sources load independently, and tests need to know when all of them are in.</p>
+            </div>
+            <div class="mine">
+              <h2>My part</h2>
+              <ul class="ticks">
+                <li>A ready event for each of the eight sources, emitted once per session.</li>
+                <li>A waiter that also counts events fired before it subscribed, with full listener clean-up.</li>
+                <li><code>data-ready</code> and <code>data-ready-ms</code> on the dashboard root, for tests and load-time tracking.</li>
+                <li>Flights loaded per calendar day with TanStack Query: today refreshes every 5 seconds, past days are fetched once and cached.</li>
+                <li>10 test cases for early, late and repeated events.</li>
+              </ul>
+            </div>
+            <div class="result">
+              <h2>Result</h2>
+              <p>The dashboard reports when it is ready and how long that took, and switching back to a past day loads from cache instead of the network.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="row mixed">
+              <div class="ready-diagram">
+                <div class="sources">
+                  <span>User</span><span>Flight requests</span><span>Statistics</span><span>Map</span>
+                  <span>Airports</span><span>NOTAMs</span><span>Suspensions</span><span>Bounds</span>
+                </div>
+                <div class="arrow">each emits <code>dashboard:*:ready</code> once</div>
+                <div class="target">
+                  <b>dashboard:ready</b><code>&lt;div data-testid="approver-dashboard"<br>&nbsp;&nbsp;data-ready="true" data-ready-ms="…"&gt;</code>
+                </div>
+              </div>
+              <pre class="code" tabindex="0" role="region" aria-label="Code example: child effects run before the parent subscribes, so remember what already fired"><span class="c">// child effects run before the parent subscribes,</span>
+<span class="c">// so remember what already fired</span>
+<span class="k">const</span> fired = <span class="k">new</span> <span class="t">Set</span>();
+
+<span class="k">export function</span> <span class="f">emitReady</span>(name) {
+  <span class="k">if</span> (fired.<span class="f">has</span>(name)) <span class="k">return</span>;
+  fired.<span class="f">add</span>(name);
+  window.<span class="f">dispatchEvent</span>(<span class="k">new</span> <span class="t">CustomEvent</span>(name));
+}
+
+<span class="k">export function</span> <span class="f">waitForAll</span>(names, onReady) {
+  <span class="k">const</span> pending = <span class="k">new</span> <span class="t">Set</span>(
+    names.<span class="f">filter</span>((n) =&gt; !fired.<span class="f">has</span>(n)));
+  <span class="k">const</span> done = () =&gt; pending.size === <span class="s">0</span> &amp;&amp; <span class="f">onReady</span>();
+  <span class="k">const</span> off = [...pending].<span class="f">map</span>((name) =&gt; {
+    <span class="k">const</span> handler = () =&gt; { pending.<span class="f">delete</span>(name); <span class="f">done</span>(); };
+    window.<span class="f">addEventListener</span>(name, handler, { once: <span class="k">true</span> });
+    <span class="k">return</span> () =&gt; window.<span class="f">removeEventListener</span>(name, handler);
+  });
+  <span class="f">done</span>();
+  <span class="k">return</span> () =&gt; off.<span class="f">forEach</span>((f) =&gt; <span class="f">f</span>());
+}
+
+<span class="c">// today polls every 5 s; past days are cached for good</span>
+<span class="f">useQuery</span>({
+  queryKey: [<span class="s">"dashboard flights"</span>, start, end, isPastDay],
+  refetchInterval: isPastDay ? <span class="k">false</span> : <span class="s">5000</span>,
+  staleTime: isPastDay ? <span class="t">Infinity</span> : <span class="s">0</span>,
+});</pre>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="pager" aria-label="Case studies">
+        <div class="wrap">
+          <a class="prev" rel="prev" href="notifications.html"><span>← Previous</span><b>A notification centre with live alerts and sound</b></a>
+          <a class="next" rel="next" href="test-ids-cypress.html"><span>Next →</span><b>Test IDs and Cypress page objects for the QA team</b></a>
+          <p class="hint">Use the <kbd>←</kbd> <kbd>→</kbd> keys to move between case studies.</p>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="links">
+          <span>© 2026 Hamzah Hashmi</span><a href="mailto:hamzah.hashmi92@gmail.com">hamzah.hashmi92@gmail.com</a><a href="https://www.linkedin.com/in/hamzahashmi92" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <p class="small">The React apps were run from their source with fictional demo data. The ASP.NET pages were rebuilt from their original markup, styles and scripts. Client logos are removed. Code samples are short examples written for this portfolio.</p>
+      </div>
+    </footer>
+
+    <dialog class="viewer" aria-label="Screenshot">
+      <div class="bar">
+        <p></p>
+        <button type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <img alt="">
+    </dialog>
+
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>

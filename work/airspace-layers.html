@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Airspace layers on a public map · Hamzah Hashmi</title>
+    <meta
+      name="description"
+      content="Fintraffic Sky shows drone pilots in Finland which airspace applies where. I built the map layers that make zone types easy to tell apart."
+    >
+    <meta name="author" content="Hamzah Hashmi">
+    <meta name="theme-color" content="#15171c">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Airspace layers on a public map · Hamzah Hashmi">
+    <meta
+      property="og:description"
+      content="Fintraffic Sky shows drone pilots in Finland which airspace applies where. I built the map layers that make zone types easy to tell apart."
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin-800-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="../assets/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24">
+        <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v6H4V6h6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/>
+      </symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/>
+      </symbol>
+    </svg>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Hamzah Hashmi, home page"><span class="mono" aria-hidden="true">HH</span><span class="name">Hamzah Hashmi</span></a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#work" aria-current="true">Work</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-primary" href="../Hamzah-Hashmi-Frontend-Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span><span class="long">Portfolio </span>PDF</span><span class="sr-only"> (PDF, 3.2 MB, opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="case-top">
+        <div class="wrap">
+          <a href="../index.html#card-airspace-layers"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>All work</a>
+        </div>
+      </div>
+      <article class="case" aria-labelledby="t">
+        <div class="wrap">
+          <header class="case-head">
+            <p class="case-num">Case 15<span class="part"> · Fintraffic Sky, Finland</span></p>
+            <h1 id="t">Airspace layers on a public map</h1>
+            <p class="deck">Fintraffic Sky shows drone pilots in Finland which airspace applies where. I built the map layers that make zone types easy to tell apart.</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>Google Maps API</li>
+              <li>SVG</li>
+              <li>Turf.js</li>
+            </ul>
+          </header>
+          <div class="story">
+            <div class="problem">
+              <h2>The problem</h2>
+              <p>Overlapping zones of different types looked alike on the map, and their names were hard to place.</p>
+            </div>
+            <div class="mine">
+              <h2>My part</h2>
+              <ul class="ticks">
+                <li>A hatched fill for danger and prohibited areas, using an SVG pattern inside a custom map overlay.</li>
+                <li>Dashed sector boundaries from a repeated SVG symbol.</li>
+                <li>Zone names placed inside each border by shrinking the polygon with Turf.js, grouped so labels show at the right zoom.</li>
+                <li>A toggle for inactive danger and restricted areas, and an information box with times and limits for any point.</li>
+              </ul>
+            </div>
+            <div class="result">
+              <h2>Result</h2>
+              <p>Each zone type has its own look on the map, and the hatched layer was later reused in a second product.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="row">
+              <figure style="--r: 1.764">
+                <a
+                  class="shot"
+                  href="../img/hf-airspace-layers.jpg"
+                  data-caption="Hatched danger areas, dashed sector lines and labels inside each zone."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/hf-airspace-layers.jpg"
+                    alt="Screenshot: hatched danger areas, dashed sector lines and zone labels"
+                    width="1478"
+                    height="838"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>Hatched danger areas, dashed sector lines and labels inside each zone.</figcaption>
+              </figure>
+
+              <figure style="--r: 0.700">
+                <a
+                  class="shot"
+                  href="../img/hf-airspace-info.jpg"
+                  data-caption="The airspace at a clicked point, with times and limits."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/hf-airspace-info.jpg"
+                    alt="Screenshot: the airspace information box for a clicked point"
+                    width="591"
+                    height="844"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>The airspace at a clicked point, with times and limits.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="pager" aria-label="Case studies">
+        <div class="wrap">
+          <a class="prev" rel="prev" href="live-traffic-alerts.html"><span>← Previous</span><b>Live traffic alerts in the control room</b></a>
+          <a class="next" rel="next" href="typescript-platform.html"><span>Next →</span><b>Building the platform in TypeScript</b></a>
+          <p class="hint">Use the <kbd>←</kbd> <kbd>→</kbd> keys to move between case studies.</p>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="links">
+          <span>© 2026 Hamzah Hashmi</span><a href="mailto:hamzah.hashmi92@gmail.com">hamzah.hashmi92@gmail.com</a><a href="https://www.linkedin.com/in/hamzahashmi92" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <p class="small">The React apps were run from their source with fictional demo data. The ASP.NET pages were rebuilt from their original markup, styles and scripts. Client logos are removed. Code samples are short examples written for this portfolio.</p>
+      </div>
+    </footer>
+
+    <dialog class="viewer" aria-label="Screenshot">
+      <div class="bar">
+        <p></p>
+        <button type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <img alt="">
+    </dialog>
+
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>

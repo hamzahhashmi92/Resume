@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A tactical view for approving authorities · Hamzah Hashmi</title>
+    <meta
+      name="description"
+      content="Authorities that approve flights close to take-off care about the next hour, not the whole day. I added a default view per authority and a tactical window that filters the dashboard."
+    >
+    <meta name="author" content="Hamzah Hashmi">
+    <meta name="theme-color" content="#15171c">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A tactical view for approving authorities · Hamzah Hashmi">
+    <meta
+      property="og:description"
+      content="Authorities that approve flights close to take-off care about the next hour, not the whole day. I added a default view per authority and a tactical window that filters the dashboard."
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin-800-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="../assets/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24">
+        <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v6H4V6h6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/>
+      </symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/>
+      </symbol>
+    </svg>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Hamzah Hashmi, home page"><span class="mono" aria-hidden="true">HH</span><span class="name">Hamzah Hashmi</span></a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#work" aria-current="true">Work</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-primary" href="../Hamzah-Hashmi-Frontend-Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span><span class="long">Portfolio </span>PDF</span><span class="sr-only"> (PDF, 3.2 MB, opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="case-top">
+        <div class="wrap">
+          <a href="../index.html#card-tactical-view"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>All work</a>
+        </div>
+      </div>
+      <article class="case" aria-labelledby="t">
+        <div class="wrap">
+          <header class="case-head">
+            <p class="case-num">Case 06<span class="part"> · AstraUTM platform</span></p>
+            <h1 id="t">A tactical view for approving authorities</h1>
+            <p class="deck">Authorities that approve flights close to take-off care about the next hour, not the whole day. I added a default view per authority and a tactical window that filters the dashboard.</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>React</li>
+              <li>Zustand</li>
+              <li>Floating UI</li>
+            </ul>
+          </header>
+          <div class="story">
+            <div class="problem">
+              <h2>The problem</h2>
+              <p>Every approver saw the full day of flight requests, even when only the next hour needed a decision.</p>
+            </div>
+            <div class="mine">
+              <h2>My part</h2>
+              <ul class="ticks">
+                <li>A default view (Today or Tactical) and a time window in each authority's settings.</li>
+                <li>A first-visit message that explains the view, and a floating switch on the dashboard.</li>
+                <li>Flight requests filtered to the tactical window.</li>
+                <li>A Zustand store with a typed view enum, shared by the switch and the filters.</li>
+              </ul>
+            </div>
+            <div class="result">
+              <h2>Result</h2>
+              <p>Approvers open the dashboard on the view their authority chose, focused on the flights that need them now.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="row">
+              <figure style="--r: 1.113">
+                <a
+                  class="shot"
+                  href="../img/h-tactical-toggle.jpg"
+                  data-caption="The dashboard in tactical view, with the view switch open."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/h-tactical-toggle.jpg"
+                    alt="Screenshot: the dashboard with the tactical view toggle open"
+                    width="1035"
+                    height="930"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>The dashboard in tactical view, with the view switch open.</figcaption>
+              </figure>
+
+              <figure style="--r: 1.635">
+                <a
+                  class="shot"
+                  href="../img/h-authority-default-view.jpg"
+                  data-caption="Each authority sets its default view and time window."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/h-authority-default-view.jpg"
+                    alt="Screenshot: the authority settings with default view and tactical horizon"
+                    width="1035"
+                    height="633"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>Each authority sets its default view and time window.</figcaption>
+              </figure>
+            </div>
+            <div class="row single">
+              <figure style="max-width: min(100%, 690px)">
+                <a
+                  class="shot"
+                  href="../img/h-default-view-popup.jpg"
+                  data-caption="The message approvers see on their first visit."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/h-default-view-popup.jpg"
+                    alt="Screenshot: the first-visit message explaining the tactical view"
+                    width="1035"
+                    height="201"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>The message approvers see on their first visit.</figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="pager" aria-label="Case studies">
+        <div class="wrap">
+          <a class="prev" rel="prev" href="operator-users.html"><span>← Previous</span><b>One form to create and edit operator users</b></a>
+          <a class="next" rel="next" href="population-density.html"><span>Next →</span><b>Population density on the map</b></a>
+          <p class="hint">Use the <kbd>←</kbd> <kbd>→</kbd> keys to move between case studies.</p>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="links">
+          <span>© 2026 Hamzah Hashmi</span><a href="mailto:hamzah.hashmi92@gmail.com">hamzah.hashmi92@gmail.com</a><a href="https://www.linkedin.com/in/hamzahashmi92" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <p class="small">The React apps were run from their source with fictional demo data. The ASP.NET pages were rebuilt from their original markup, styles and scripts. Client logos are removed. Code samples are short examples written for this portfolio.</p>
+      </div>
+    </footer>
+
+    <dialog class="viewer" aria-label="Screenshot">
+      <div class="bar">
+        <p></p>
+        <button type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <img alt="">
+    </dialog>
+
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>

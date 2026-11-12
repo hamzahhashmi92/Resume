@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A notification centre with live alerts and sound · Hamzah Hashmi</title>
+    <meta
+      name="description"
+      content="Pilots and authority staff get every update in one place: unread counts on the bell, three tabs, links straight to the record, and a sound when something new arrives. I built the feature and later rebuilt its data layer."
+    >
+    <meta name="author" content="Hamzah Hashmi">
+    <meta name="theme-color" content="#15171c">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="A notification centre with live alerts and sound · Hamzah Hashmi">
+    <meta
+      property="og:description"
+      content="Pilots and authority staff get every update in one place: unread counts on the bell, three tabs, links straight to the record, and a sound when something new arrives. I built the feature and later rebuilt its data layer."
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin-800-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="../assets/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24">
+        <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v6H4V6h6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/>
+      </symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/>
+      </symbol>
+    </svg>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Hamzah Hashmi, home page"><span class="mono" aria-hidden="true">HH</span><span class="name">Hamzah Hashmi</span></a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#work" aria-current="true">Work</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-primary" href="../Hamzah-Hashmi-Frontend-Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span><span class="long">Portfolio </span>PDF</span><span class="sr-only"> (PDF, 3.2 MB, opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="case-top">
+        <div class="wrap">
+          <a href="../index.html#card-notifications"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>All work</a>
+        </div>
+      </div>
+      <article class="case" aria-labelledby="t">
+        <div class="wrap">
+          <header class="case-head">
+            <p class="case-num">Case 01<span class="part"> · AstraUTM platform</span></p>
+            <h1 id="t">A notification centre with live alerts and sound</h1>
+            <p class="deck">Pilots and authority staff get every update in one place: unread counts on the bell, three tabs, links straight to the record, and a sound when something new arrives. I built the feature and later rebuilt its data layer.</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>React</li>
+              <li>TanStack Query</li>
+              <li>Zustand</li>
+              <li>TypeScript</li>
+              <li>Vitest</li>
+            </ul>
+          </header>
+          <div class="story">
+            <div class="problem">
+              <h2>The problem</h2>
+              <p>Updates about flight requests, drones, incidents and users had no single place to land, and new ones were easy to miss.</p>
+            </div>
+            <div class="mine">
+              <h2>My part</h2>
+              <ul class="ticks">
+                <li>The bell popup with Alert, General and All tabs, unread badges and links by record type.</li>
+                <li>The full notifications page, grouped by day, with infinite loading.</li>
+                <li>Bulk and single mark-as-read and delete, with a confirmation step.</li>
+                <li>A chime when the unread count rises and a looping siren during an emergency, both behind a global mute.</li>
+                <li>A typed notification API in TypeScript with a query-key factory, and updates that show instantly and roll back on failure.</li>
+              </ul>
+            </div>
+            <div class="result">
+              <h2>Result</h2>
+              <p>85% of the notification code is mine, and I wrote 43 of its 44 test cases.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="row mixed">
+              <figure>
+                <a
+                  class="shot"
+                  href="../img/h-notif-popup.jpg"
+                  data-caption="The bell popup: unread badges per tab, rows for each kind of record."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/h-notif-popup.jpg"
+                    alt="Screenshot: the notification popup with Alert, General and All tabs and unread badges"
+                    width="1192"
+                    height="1272"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>The bell popup: unread badges per tab, rows for each kind of record.</figcaption>
+              </figure>
+              <pre class="code" tabindex="0" role="region" aria-label="Code example: mark as read: update the list first, roll back if the server says no"><span class="c">// mark as read: update the list first,</span>
+<span class="c">// roll back if the server says no</span>
+<span class="k">const</span> markRead = <span class="f">useMutation</span>({
+  mutationFn: NotificationApi.markAsRead,
+  onMutate: (ids) =&gt;
+    <span class="f">applyOptimisticRead</span>(client, key, ids),
+  onError: (_err, _ids, ctx) =&gt;
+    <span class="f">rollback</span>(client, key, ctx),
+  onSettled: () =&gt;
+    client.<span class="f">invalidateQueries</span>({ queryKey: key }),
+});
+
+<span class="k">async function</span> <span class="f">applyOptimisticRead</span>(client, key, ids) {
+  <span class="k">const</span> read = <span class="k">new</span> <span class="t">Set</span>(ids);
+  <span class="k">await</span> client.<span class="f">cancelQueries</span>({ queryKey: key });
+  <span class="k">const</span> previous = client.<span class="f">getQueryData</span>(key);
+  client.<span class="f">setQueryData</span>(key, (data) =&gt; ({
+    ...data,
+    pages: data.pages.<span class="f">map</span>((page) =&gt; ({
+      ...page,
+      notifications: page.notifications.<span class="f">map</span>((n) =&gt;
+        read.<span class="f">has</span>(n.id) ? { ...n, isRead: <span class="k">true</span> } : n),
+    })),
+  }));
+  <span class="k">return</span> { previous };
+}</pre>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="pager" aria-label="Case studies">
+        <div class="wrap">
+          <a class="prev" href="../index.html#work"><span>← All work</span><b>Back to the overview</b></a>
+          <a class="next" rel="next" href="dashboard-ready.html"><span>Next →</span><b>A ready signal for the live dashboard</b></a>
+          <p class="hint">Press <kbd>→</kbd> for the next case study.</p>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="links">
+          <span>© 2026 Hamzah Hashmi</span><a href="mailto:hamzah.hashmi92@gmail.com">hamzah.hashmi92@gmail.com</a><a href="https://www.linkedin.com/in/hamzahashmi92" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <p class="small">The React apps were run from their source with fictional demo data. The ASP.NET pages were rebuilt from their original markup, styles and scripts. Client logos are removed. Code samples are short examples written for this portfolio.</p>
+      </div>
+    </footer>
+
+    <dialog class="viewer" aria-label="Screenshot">
+      <div class="bar">
+        <p></p>
+        <button type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <img alt="">
+    </dialog>
+
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unit and component tests · Hamzah Hashmi</title>
+    <meta
+      name="description"
+      content="I write tests with every feature, using Vitest, React Testing Library and MSW, including the shared components the whole app uses. 330+ of the platform's test cases are mine."
+    >
+    <meta name="author" content="Hamzah Hashmi">
+    <meta name="theme-color" content="#15171c">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Unit and component tests · Hamzah Hashmi">
+    <meta
+      property="og:description"
+      content="I write tests with every feature, using Vitest, React Testing Library and MSW, including the shared components the whole app uses. 330+ of the platform's test cases are mine."
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin-800-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="../assets/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24">
+        <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v6H4V6h6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/>
+      </symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/>
+      </symbol>
+    </svg>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Hamzah Hashmi, home page"><span class="mono" aria-hidden="true">HH</span><span class="name">Hamzah Hashmi</span></a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#work" aria-current="true">Work</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-primary" href="../Hamzah-Hashmi-Frontend-Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span><span class="long">Portfolio </span>PDF</span><span class="sr-only"> (PDF, 3.2 MB, opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="case-top">
+        <div class="wrap">
+          <a href="../index.html#card-unit-tests"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>All work</a>
+        </div>
+      </div>
+      <article class="case" aria-labelledby="t">
+        <div class="wrap">
+          <header class="case-head">
+            <p class="case-num">Case 04<span class="part"> · AstraUTM platform</span></p>
+            <h1 id="t">Unit and component tests</h1>
+            <p class="deck">I write tests with every feature, using Vitest, React Testing Library and MSW, including the shared components the whole app uses. 330+ of the platform's test cases are mine.</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>Vitest</li>
+              <li>React Testing Library</li>
+              <li>MSW</li>
+            </ul>
+          </header>
+
+          <div class="media">
+            <div class="row mixed">
+              <pre class="code" tabindex="0" role="region" aria-label="Code example: the chime plays on a rise, never on first load"><span class="c">// the chime plays on a rise, never on first load</span>
+<span class="f">it</span>(<span class="s">"plays only when the unread count goes up"</span>, () =&gt; {
+  <span class="k">const</span> { rerender } = <span class="f">renderHook</span>(
+    ({ count }) =&gt; <span class="f">useNotificationAudio</span>({ unreadCount: count }),
+    { initialProps: { count: <span class="s">3</span> }, wrapper },
+  );
+  <span class="f">expect</span>(play).not.<span class="f">toHaveBeenCalled</span>();
+
+  <span class="f">rerender</span>({ count: <span class="s">5</span> });
+  <span class="f">expect</span>(play).<span class="f">toHaveBeenCalledTimes</span>(<span class="s">1</span>);
+
+  <span class="f">rerender</span>({ count: <span class="s">4</span> });
+  <span class="f">expect</span>(play).<span class="f">toHaveBeenCalledTimes</span>(<span class="s">1</span>);
+});
+
+<span class="f">it</span>(<span class="s">"ignores a blocked autoplay"</span>, <span class="k">async</span> () =&gt; {
+  play.<span class="f">mockRejectedValueOnce</span>(
+    <span class="k">new</span> <span class="t">DOMException</span>(<span class="s">"blocked"</span>, <span class="s">"NotAllowedError"</span>));
+  <span class="k">const</span> { rerender } = <span class="f">renderHook</span>(...);
+  <span class="f">rerender</span>({ count: <span class="s">9</span> });
+  <span class="k">await</span> <span class="f">waitFor</span>(() =&gt;
+    <span class="f">expect</span>(console.error).not.<span class="f">toHaveBeenCalled</span>());
+});</pre>
+              <div class="table-wrap">
+                <table class="data">
+                  <caption class="sr-only">Test cases by area</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">What my tests check</th>
+                      <th scope="col" class="n">Cases</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Notification sound, badges, tabs and rows</td>
+                      <td class="n">43</td>
+                    </tr>
+                    <tr>
+                      <td>Operator user create, edit, upload, block</td>
+                      <td class="n">21</td>
+                    </tr>
+                    <tr>
+                      <td>COMMS alerts, including session expiry</td>
+                      <td class="n">17</td>
+                    </tr>
+                    <tr>
+                      <td>Date ranges in UTC and local time</td>
+                      <td class="n">16</td>
+                    </tr>
+                    <tr>
+                      <td>Overlapping flights: load more, error, retry</td>
+                      <td class="n">15</td>
+                    </tr>
+                    <tr>
+                      <td>Commercial organisation editing</td>
+                      <td class="n">13</td>
+                    </tr>
+                    <tr>
+                      <td>Dashboard ready events</td>
+                      <td class="n">10</td>
+                    </tr>
+                    <tr>
+                      <td>Shared components: grid cells, tooltips, file input, visibility wrapper</td>
+                      <td class="n">80+</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row single">
+              <div class="facts">
+                <div><b>330+</b><span>test cases written</span></div>
+                <div><b>82</b><span>test files I created</span></div>
+                <div><b>8,200+</b><span>lines of test code</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="pager" aria-label="Case studies">
+        <div class="wrap">
+          <a class="prev" rel="prev" href="test-ids-cypress.html"><span>← Previous</span><b>Test IDs and Cypress page objects for the QA team</b></a>
+          <a class="next" rel="next" href="operator-users.html"><span>Next →</span><b>One form to create and edit operator users</b></a>
+          <p class="hint">Use the <kbd>←</kbd> <kbd>→</kbd> keys to move between case studies.</p>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="links">
+          <span>© 2026 Hamzah Hashmi</span><a href="mailto:hamzah.hashmi92@gmail.com">hamzah.hashmi92@gmail.com</a><a href="https://www.linkedin.com/in/hamzahashmi92" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <p class="small">The React apps were run from their source with fictional demo data. The ASP.NET pages were rebuilt from their original markup, styles and scripts. Client logos are removed. Code samples are short examples written for this portfolio.</p>
+      </div>
+    </footer>
+
+    <dialog class="viewer" aria-label="Screenshot">
+      <div class="bar">
+        <p></p>
+        <button type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <img alt="">
+    </dialog>
+
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>

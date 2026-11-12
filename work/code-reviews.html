@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Code reviews · Hamzah Hashmi</title>
+    <meta
+      name="description"
+      content="I reviewed 120 merge requests that went into the AstraUTM platform, and I run colleagues' changes locally before approving."
+    >
+    <meta name="author" content="Hamzah Hashmi">
+    <meta name="theme-color" content="#15171c">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Code reviews · Hamzah Hashmi">
+    <meta
+      property="og:description"
+      content="I reviewed 120 merge requests that went into the AstraUTM platform, and I run colleagues' changes locally before approving."
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin-800-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="../assets/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24">
+        <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v6H4V6h6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/>
+      </symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/>
+      </symbol>
+    </svg>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Hamzah Hashmi, home page"><span class="mono" aria-hidden="true">HH</span><span class="name">Hamzah Hashmi</span></a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#work" aria-current="true">Work</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-primary" href="../Hamzah-Hashmi-Frontend-Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span><span class="long">Portfolio </span>PDF</span><span class="sr-only"> (PDF, 3.2 MB, opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="case-top">
+        <div class="wrap">
+          <a href="../index.html#card-code-reviews"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>All work</a>
+        </div>
+      </div>
+      <article class="case" aria-labelledby="t">
+        <div class="wrap">
+          <header class="case-head">
+            <p class="case-num">Case 09<span class="part"> · AstraUTM platform</span></p>
+            <h1 id="t">Code reviews</h1>
+            <p class="deck">I reviewed 120 merge requests that went into the AstraUTM platform, and I run colleagues' changes locally before approving. Some of the issues I raised:</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>120 merge requests</li>
+              <li>GitLab</li>
+              <li>SonarQube</li>
+            </ul>
+          </header>
+          <div class="reviews">
+            <div class="review">
+              <p class="tag">Memory</p>
+              <h2>Releasing temporary file links</h2>
+              <p>A file viewer released its object URL on a 10-second timer. I asked for proper clean-up, so links neither leak nor disappear while the file is still open.</p>
+            </div>
+
+            <div class="review">
+              <p class="tag">Translations</p>
+              <h2>A consistent migration</h2>
+              <p>During the move to Paraglide I flagged old translation hooks, leftover <code>t()</code> calls, keys that should be shared, and an altitude label that ignored the feet and metres setting.</p>
+            </div>
+
+            <div class="review">
+              <p class="tag">Quality</p>
+              <h2>Clean merges</h2>
+              <p>Missing alt text on images (an accessibility and SonarQube warning), unused imports, a stray console call in a test, and conflicts left unresolved.</p>
+            </div>
+
+            <div class="review">
+              <p class="tag">Tests</p>
+              <h2>Stable selectors</h2>
+              <p>I asked for test IDs instead of text or class selectors in a colleague's tests, and agreed a pattern for dashboard rows: a test ID plus the flight's ID as a data attribute.</p>
+            </div>
+
+            <div class="review">
+              <p class="tag">Safety</p>
+              <h2>Defensive data access</h2>
+              <p>Safe access to nested API responses when saving an incident, and removal of hard-coded strings from user pages.</p>
+            </div>
+
+            <div class="review">
+              <p class="tag">Verification</p>
+              <h2>Checked locally</h2>
+              <p>For changes with a wide reach I run the branch, check the dashboard and the other critical pages, and confirm the result in the review.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="pager" aria-label="Case studies">
+        <div class="wrap">
+          <a class="prev" rel="prev" href="airspace-conflicts.html"><span>← Previous</span><b>Airspace conflicts while planning a flight</b></a>
+          <a class="next" rel="next" href="more-astrautm.html"><span>Next →</span><b>More work on the AstraUTM platform</b></a>
+          <p class="hint">Use the <kbd>←</kbd> <kbd>→</kbd> keys to move between case studies.</p>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="links">
+          <span>© 2026 Hamzah Hashmi</span><a href="mailto:hamzah.hashmi92@gmail.com">hamzah.hashmi92@gmail.com</a><a href="https://www.linkedin.com/in/hamzahashmi92" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <p class="small">The React apps were run from their source with fictional demo data. The ASP.NET pages were rebuilt from their original markup, styles and scripts. Client logos are removed. Code samples are short examples written for this portfolio.</p>
+      </div>
+    </footer>
+
+    <dialog class="viewer" aria-label="Screenshot">
+      <div class="bar">
+        <p></p>
+        <button type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <img alt="">
+    </dialog>
+
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>

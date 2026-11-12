@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Live traffic alerts in the control room · Hamzah Hashmi</title>
+    <meta
+      name="description"
+      content="Control-room staff watch every live drone and aircraft on one map. In the authority portal I added clustering for busy areas, a repeating alarm for unauthorised drones, pilot positions and fuller altitude details."
+    >
+    <meta name="author" content="Hamzah Hashmi">
+    <meta name="theme-color" content="#15171c">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Live traffic alerts in the control room · Hamzah Hashmi">
+    <meta
+      property="og:description"
+      content="Control-room staff watch every live drone and aircraft on one map. In the authority portal I added clustering for busy areas, a repeating alarm for unauthorised drones, pilot positions and fuller altitude details."
+    >
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+    <link
+      rel="preload"
+      href="../assets/fonts/manrope-latin-800-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link
+      rel="preload"
+      href="../assets/fonts/public-sans-latin-400-normal.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+    <link rel="stylesheet" href="../assets/site.css">
+  </head>
+  <body>
+    <svg class="sprite" aria-hidden="true">
+      <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></symbol>
+      <symbol id="i-out" viewBox="0 0 24 24">
+        <path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M18 14v6H4V6h6"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24">
+        <path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>
+      </symbol>
+      <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24">
+        <path d="M14 3H6v18h12V7z"/><path d="M14 3v4h4"/><path d="M9 13h6M9 17h6"/>
+      </symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></symbol>
+      <symbol id="i-zoom" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="6"/><path d="m20 20-4.5-4.5M11 8v6M8 11h6"/>
+      </symbol>
+    </svg>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="nav">
+      <div class="wrap">
+        <a class="brand" href="../index.html" aria-label="Hamzah Hashmi, home page"><span class="mono" aria-hidden="true">HH</span><span class="name">Hamzah Hashmi</span></a>
+        <nav aria-label="Main">
+          <ul>
+            <li><a href="../index.html#work" aria-current="true">Work</a></li>
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn-primary" href="../Hamzah-Hashmi-Frontend-Portfolio.pdf" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg><span><span class="long">Portfolio </span>PDF</span><span class="sr-only"> (PDF, 3.2 MB, opens in a new tab)</span></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <div class="case-top">
+        <div class="wrap">
+          <a href="../index.html#card-live-traffic-alerts"><svg class="icon" aria-hidden="true"><use href="#i-back"/></svg>All work</a>
+        </div>
+      </div>
+      <article class="case" aria-labelledby="t">
+        <div class="wrap">
+          <header class="case-head">
+            <p class="case-num">Case 14<span class="part"> · Authority portal</span></p>
+            <h1 id="t">Live traffic alerts in the control room</h1>
+            <p class="deck">Control-room staff watch every live drone and aircraft on one map. In the authority portal I added clustering for busy areas, a repeating alarm for unauthorised drones, pilot positions and fuller altitude details.</p>
+            <ul class="chips" aria-label="Technologies">
+              <li>JavaScript</li>
+              <li>Google Maps API</li>
+              <li>MarkerClusterer</li>
+            </ul>
+          </header>
+          <div class="story">
+            <div class="problem">
+              <h2>The problem</h2>
+              <p>With many drones in a small area the map became hard to read, and an unauthorised drone was easy to miss.</p>
+            </div>
+            <div class="mine">
+              <h2>My part</h2>
+              <ul class="ticks">
+                <li>Clustering of live tracks, rebuilt at most once a second so the map stays responsive.</li>
+                <li>A repeating alarm for each unauthorised drone, with a mute per drone, cleared when the drone leaves the feed.</li>
+                <li>Pilot positions drawn next to their drones.</li>
+                <li>Geodetic and pressure altitude in each track's information box.</li>
+                <li>A line-of-sight request removed from every refresh of the information box, so each update sends fewer requests.</li>
+              </ul>
+            </div>
+            <div class="result">
+              <h2>Result</h2>
+              <p>Busy areas stay readable, and an unauthorised drone is heard as soon as it appears on the map.</p>
+            </div>
+          </div>
+          <div class="media">
+            <div class="row mixed">
+              <figure>
+                <a
+                  class="shot"
+                  href="../img/hp-unauth-alert.jpg"
+                  data-caption="An unauthorised drone (red): geodetic and pressure altitude, and its alarm control."
+                  aria-haspopup="dialog"
+                >
+                  <img
+                    src="../img/hp-unauth-alert.jpg"
+                    alt="Screenshot: an unauthorised drone selected, with its altitude details and alarm button"
+                    width="1035"
+                    height="942"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="zoom"><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+                </a>
+                <figcaption>An unauthorised drone (red): geodetic and pressure altitude, and its alarm control.</figcaption>
+              </figure>
+              <pre class="code" tabindex="0" role="region" aria-label="Code example: one alarm per unauthorised drone"><span class="c">// one alarm per unauthorised drone</span>
+<span class="k">const</span> alarms = <span class="k">new</span> <span class="t">Map</span>(); <span class="c">// flightId -&gt; timer</span>
+
+<span class="k">function</span> <span class="f">syncAlarms</span>(unauthorised) {
+  <span class="k">for</span> (<span class="k">const</span> id <span class="k">of</span> unauthorised) {
+    <span class="k">if</span> (alarms.<span class="f">has</span>(id)) <span class="k">continue</span>;
+    <span class="k">const</span> timer = <span class="f">setInterval</span>(
+      () =&gt; siren.<span class="f">play</span>(), <span class="s">3000</span>);
+    alarms.<span class="f">set</span>(id, timer);
+  }
+  <span class="c">// drones that left the feed go quiet</span>
+  <span class="k">for</span> (<span class="k">const</span> [id, timer] <span class="k">of</span> alarms) {
+    <span class="k">if</span> (unauthorised.<span class="f">has</span>(id)) <span class="k">continue</span>;
+    <span class="f">clearInterval</span>(timer);
+    alarms.<span class="f">delete</span>(id);
+  }
+}
+
+<span class="c">// rebuild clusters at most once a second</span>
+<span class="k">const</span> refreshClusters = <span class="f">debounce</span>(
+  () =&gt; clusterer.<span class="f">repaint</span>(), <span class="s">1000</span>);</pre>
+            </div>
+          </div>
+        </div>
+      </article>
+      <nav class="pager" aria-label="Case studies">
+        <div class="wrap">
+          <a class="prev" rel="prev" href="two-step-sign-in.html"><span>← Previous</span><b>Two-step sign-in for the control-room portal</b></a>
+          <a class="next" rel="next" href="airspace-layers.html"><span>Next →</span><b>Airspace layers on a public map</b></a>
+          <p class="hint">Use the <kbd>←</kbd> <kbd>→</kbd> keys to move between case studies.</p>
+        </div>
+      </nav>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <p class="links">
+          <span>© 2026 Hamzah Hashmi</span><a href="mailto:hamzah.hashmi92@gmail.com">hamzah.hashmi92@gmail.com</a><a href="https://www.linkedin.com/in/hamzahashmi92" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+        </p>
+        <p class="small">The React apps were run from their source with fictional demo data. The ASP.NET pages were rebuilt from their original markup, styles and scripts. Client logos are removed. Code samples are short examples written for this portfolio.</p>
+      </div>
+    </footer>
+
+    <dialog class="viewer" aria-label="Screenshot">
+      <div class="bar">
+        <p></p>
+        <button type="button" aria-label="Close"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+      </div>
+      <img alt="">
+    </dialog>
+
+    <script src="../assets/site.js" defer></script>
+  </body>
+</html>
